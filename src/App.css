@@ -1,0 +1,98 @@
+.frame-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, max-content));
+    grid-gap: 16px;
+    justify-content: center;
+    padding: 10px;
+}
+.frame{
+ list-style-type: none;
+ border: 1px solid gray;
+ padding: 5px;
+ width: 210px;
+ height: 210px;
+}
+.col {
+    flex: 1 0 0%;
+  }
+html{
+    min-height:100%;/* make sure it is at least as tall as the viewport */
+    position:relative;
+    overflow:hidden;
+}
+body{
+    height:100%; /* force the BODY element to match the height of the HTML element */
+}
+.frame{
+    background-color: rgb(231, 231, 231);
+    border-radius: 10px;
+    margin: 10px;
+    height: 300px;
+    width: 200px;
+}
+.nav{
+    position: sticky;
+    top:0px;
+    left:0px;
+}
+.ul{
+    width:100%;
+}
+.li{ 
+    width:100%;
+    height: 40px;
+    vertical-align: center;
+}
+.active>.li{
+    background-color: blue;
+}
+.d-flex{
+    display: flex !important;
+}
+.d-none{
+    display: none !important;
+}
+.sidepanel{
+    display: flex;
+    position: absolute;
+    left: 0px;
+    top: 40px;
+    width: 200px;
+    height: 100%;
+    background-color: rgb(231, 231, 231);
+}
+@media (min-width: 768px) {
+    .sidepanel{
+        height:100vh;
+        flex: 0.25 0 0%;
+        top:40px;
+        left:0px;
+    }
+}
+@media (max-width: 768px) {
+    .frame-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, max-content));
+        grid-gap: 16px;
+        justify-content: center;
+        padding: 10px;
+        margin-left:0px !important;
+    }
+}
+.btn{
+   cursor:pointer;
+   background-color: transparent;
+   border:none;
+}
+.bg-light{
+    background-color: rgb(231, 231, 231);
+}
+.bg-dark{
+    background-color: rgb(46, 46, 46);
+}
+.text-light{
+    color: rgb(231, 231, 231);
+}
+.text-dark{
+    color: rgb(46, 46, 46);
+}
