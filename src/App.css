@@ -1,20 +1,4 @@
-.frame-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, max-content));
-    grid-gap: 16px;
-    justify-content: center;
-    padding: 10px;
-}
-.frame{
- list-style-type: none;
- border: 1px solid gray;
- padding: 5px;
- width: 210px;
- height: 210px;
-}
-.col {
-    flex: 1 0 0%;
-  }
+/*main elements*/
 html{
     min-height:100%;/* make sure it is at least as tall as the viewport */
     position:relative;
@@ -23,13 +7,13 @@ html{
 body{
     height:100%; /* force the BODY element to match the height of the HTML element */
 }
-.frame{
-    background-color: rgb(231, 231, 231);
-    border-radius: 10px;
-    margin: 10px;
-    height: 300px;
-    width: 200px;
-}
+
+/*components*/
+.btn{
+    cursor:pointer;
+    background-color: transparent;
+    border:none;
+ }
 .nav{
     position: sticky;
     top:0px;
@@ -46,12 +30,33 @@ body{
 .active>.li{
     background-color: blue;
 }
-.d-flex{
-    display: flex !important;
+
+/*frames*/
+.frame{
+    background-color: rgb(231, 231, 231);
+    border-radius: 10px;
+    height: 300px;
+    width: 200px;
 }
-.d-none{
-    display: none !important;
+.frame-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, max-content));
+    grid-template-rows: repeat(auto-fit, minmax(310px, max-content));
+    grid-gap: 0px 16px;
+    padding-top: 20px;
+    justify-content: center;
+    overflow-x:hidden;
+    overflow-y:scroll;
+    height: calc(100vh - 40px); /*calc nav height*/
+    width: calc(100wv - 200px); /*calc sidepanel width*/
 }
+@media (max-width: 768px) {
+    .frame-container{
+        margin-left:0px !important; /*override panelVisibility style*/
+    }
+}
+
+/*sidepanel*/
 .sidepanel{
     display: flex;
     position: absolute;
@@ -69,21 +74,8 @@ body{
         left:0px;
     }
 }
-@media (max-width: 768px) {
-    .frame-container{
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(210px, max-content));
-        grid-gap: 16px;
-        justify-content: center;
-        padding: 10px;
-        margin-left:0px !important;
-    }
-}
-.btn{
-   cursor:pointer;
-   background-color: transparent;
-   border:none;
-}
+
+/*styles*/
 .bg-light{
     background-color: rgb(231, 231, 231);
 }
@@ -95,4 +87,12 @@ body{
 }
 .text-dark{
     color: rgb(46, 46, 46);
+}
+
+/*display*/
+.d-flex{
+    display: flex !important;
+}
+.d-none{
+    display: none !important;
 }

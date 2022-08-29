@@ -29,28 +29,17 @@ class Sidepanel extends React.Component{
   }
 }
 class FrameContainer extends React.Component{
-  constructor(props){
-    super(props);
-  }
   render(){
     if(this.props.panelVisibility){
       return(<div className='frame-container' 
                   style={{
-                    height:'calc(100vh - 40px)',
-                    width:'calc(100wv - 200px)',
-                    overflowY:'scroll',
-                    overflowX:'hidden',
                     marginLeft:'200px'
                   }}>
         {this.props.children}
       </div>);
     } else {
       return(<div className='frame-container' 
-                  style={{height:'calc(100vh - 40px)',
-                          width:'calc(100wv - 200px)',
-                          overflowY:'scroll',
-                          overflowX:'hidden'
-                  }}>
+                  style={undefined}>
         {this.props.children}
       </div>);
     }
@@ -90,7 +79,15 @@ class App extends React.Component {
   }
   renderContents = (data)=>{
     var DOMElements =[];
+    var index = 0;
     for(var category in data){
+      if(index==0){
+        DOMElements.push(<Route
+          path="*"
+          element={<Navigate to={category} replace/>}
+      />);
+      }
+      index++;
       var categoryContents = [];
       for(var unit in data[category]){
         var name = data[category][unit].name;
@@ -108,7 +105,6 @@ class App extends React.Component {
     }
   }
   async componentDidMount() {
-
     this._asyncRequest = this.getContent();
     const externalData = await this._asyncRequest;
     this._asyncRequest = null;
