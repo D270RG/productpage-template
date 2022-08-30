@@ -1,5 +1,5 @@
 Used stack:
-JS,CSS,HTML5
+JS,CSS,HTML5,
 React+Router
 
 Layout: Grid
