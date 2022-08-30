@@ -4,6 +4,7 @@ React+Router
 
 Layout: Grid
 
+Static preview: https://productpage-template.onrender.com/
 
 # Getting Started with Create React App
 
